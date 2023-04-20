@@ -1,11 +1,10 @@
 """Script to extract Imgur URLs from OpenStreetMap taginfo data."""
 
-import re
 import requests
+import re
 
 def download_json(url):
     """Download JSON data from a URL."""
-    # Send an HTTP GET request with a 10-second timeout
     response = requests.get(url, timeout=10)
     if response.status_code == 200:
         return response.json()
@@ -17,23 +16,21 @@ def process_data(data):
     imgur_urls = []
     for item in data:
         if 'imgur' in item['value']:
-            # Use regex to get imgur url even if it's prefixed by an archive.org url
             urls = re.findall(
                 r'(?:https?://)?(?:www\.)?(?:web\.archive\.org\/web\/\d{14}\/)?(i\.imgur\.com/[\w./?=&%-]+)',
                 item['value']
             )
             for url in urls:
-                # Prepend 'https://' to the extracted Imgur URL
                 full_url = f'https://{url}'
+                full_url = re.sub(r'(\?.*)', '', full_url)  # Remove URL parameters
+                full_url = re.sub(r'(_d\.webp)', '.webp', full_url)  # Replace "_d.webp" with ".webp"
                 imgur_urls.append(full_url)
     return imgur_urls
 
 def save_imgur_urls(imgur_urls, output_filename):
     """Save the extracted Imgur URLs to a text file."""
-    # Open the output file with utf-8 encoding
     with open(output_filename, 'w', encoding='utf-8') as output_file:
         for url in imgur_urls:
-            # Write each Imgur URL to the output file, followed by a newline
             output_file.write(f"{url}\n")
 
 def main():
@@ -48,16 +45,18 @@ def main():
     page = 1
 
     while True:
+        print(f"Processing Taginfo results page {page}...")
         url = f"{base_url}{page}"
         json_data = download_json(url)
         imgur_urls.extend(process_data(json_data["data"]))
 
-        # Check if the current page is the last page, and if so, break the loop
         if json_data["page"] * json_data["rp"] >= json_data["total"]:
             break
         page += 1
 
+    print("Saving Imgur URLs to IMGURurls.txt...")
     save_imgur_urls(imgur_urls, output_filename)
+    print("Done! Imgur URLs saved in IMGURurls.txt")
 
 if __name__ == "__main__":
     main()

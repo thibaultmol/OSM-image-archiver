@@ -15,9 +15,11 @@ Downloads the images that are in the txt file from the previous script
 And here you can download the actual images (DO NOTE: I myself am not giving permission to use these images. Some of them have/had licenses on their respective Imgur pages which say what license applies to each one)
 
 https://drive.proton.me/urls/VR7D8BR9NW#bGd8QwTDZpFW
+
 (prefer you use the Proton Drive link, because then I don't get charged for download traffic)
 
 https://f003.backblazeb2.com/file/PublicFilesThib/Snapshot+of+all+IMGUR+images+as+of+2023+04+20.zip
+
 (if you prefer to wget/curl the file)
 
 The amount of files is lower than the actual .txt file, because some urls were simply broken or deleted on Imgur's servers.

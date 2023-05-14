@@ -2,10 +2,12 @@
 
 download_file() {
   url="$1"
-  file="$(basename "$url")"
+  dir="downloaded_images"
+  mkdir -p "$dir"
+  file="$dir/$(basename "$url")"
   if [ ! -f "$file" ]; then
     echo "Downloading $url"
-    curl -O "$url"
+    curl -o "$file" "$url"
   else
     echo "Skipping $file, already downloaded"
   fi

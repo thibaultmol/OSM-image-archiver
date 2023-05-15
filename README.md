@@ -14,7 +14,7 @@ Downloads the images that are in the txt file from the previous script
 
 And here you can download the actual images (DO NOTE: I myself am not giving permission to use these images. Some of them have/had licenses on their respective Imgur pages which say what license applies to each one)
 
-(new Proton Drive link coming soon)
+https://drive.proton.me/urls/X08ABT0HK8#eVjWNGStyLRR
 
 (prefer you use the Proton Drive link, because then I don't get charged for download traffic)
 

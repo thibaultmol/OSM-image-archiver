@@ -21,7 +21,7 @@ while read -r url; do
   done
 
   download_file "$url" &
-done < urls.txt
+done < IMGURurls.txt
 wait
 
 echo "All downloads complete"

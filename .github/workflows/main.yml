@@ -1,0 +1,37 @@
+name: Run Imgur URL Extractor
+
+on:
+  push:
+    branches:
+      - test-actions  # Replace with your test branch name if different
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: pip install requests
+
+    - name: Run script
+      run: python your_script_name.py  # Replace with the actual name of your Python script
+
+    - name: Upload Snapshots
+      uses: actions/upload-artifact@v2
+      with:
+        name: snapshots
+        path: Snapshots/
+
+    - name: Upload All Imgur URLs
+      uses: actions/upload-artifact@v2
+      with:
+        name: all-imgur-urls
+        path: All_Imgur_urls.txt

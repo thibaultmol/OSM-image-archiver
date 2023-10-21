@@ -23,14 +23,10 @@ jobs:
     - name: Run script
       run: python imgur_taginfo_to_url_list.py  # Replace with the actual name of your Python script
 
-    - name: Upload Snapshots
-      uses: actions/upload-artifact@v2
-      with:
-        name: snapshots
-        path: Snapshots/
-
-    - name: Upload All Imgur URLs
-      uses: actions/upload-artifact@v2
-      with:
-        name: all-imgur-urls
-        path: All_Imgur_urls.txt
+    - name: Commit and push
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -A
+        git commit -m "Add new Imgur URLs"
+        git push

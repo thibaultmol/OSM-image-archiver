@@ -20,3 +20,5 @@ And here you can download the actual images (DO NOTE: I myself am not giving per
 https://drive.proton.me/urls/AJF21D881R#ABHUtU6h6ZjG
 
 The amount of files is lower than the actual .txt file, because some urls were simply broken or deleted on Imgur's servers.
+## Status of imgur links on OSM:
+As of 2023 10 19 there are 26421 links but only 18 of them are broken. 4 of which were in this backup and will be recovered.

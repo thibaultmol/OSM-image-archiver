@@ -1,5 +1,3 @@
-"""Script to extract Imgur URLs from OpenStreetMap taginfo data."""
-
 import requests
 import re
 
@@ -52,12 +50,6 @@ def process_data(data):
                 full_url = re.sub(r'(_d\.webp)', '.webp', full_url)  # Replace "_d.webp" with ".webp"
                 imgur_urls.append(full_url)
     return imgur_urls
-
-def save_imgur_urls(imgur_urls, output_filename):
-    """Save the extracted Imgur URLs to a text file."""
-    with open(output_filename, 'w', encoding='utf-8') as output_file:
-        for url in imgur_urls:
-            output_file.write(f"{url}\n")
 
 def main():
     """Main function to run the script."""

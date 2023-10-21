@@ -5,25 +5,28 @@ import re
 
 from datetime import datetime
 
-def save_imgur_urls(imgur_urls, output_filename, all_output_filename):
-    """Save the extracted Imgur URLs to a text file."""
-    with open(output_filename, 'w', encoding='utf-8') as output_file:
+def save_imgur_urls(imgur_urls, daily_output_filename, all_output_filename):
+    """Save the extracted Imgur URLs to text files."""
+    # Save to the daily file
+    with open(daily_output_filename, 'w', encoding='utf-8') as daily_output_file:
         for url in imgur_urls:
-            output_file.write(f"{url}\n")
+            daily_output_file.write(f"{url}\n")
 
-    # Append to All_Imgur_urls.txt and remove duplicates
-    all_urls = set()
+    # Save to the 'All_Imgur_urls.txt' file, removing duplicates
+    existing_urls = set()
     try:
         with open(all_output_filename, 'r', encoding='utf-8') as all_output_file:
-            all_urls = set(line.strip() for line in all_output_file)
+            for line in all_output_file:
+                existing_urls.add(line.strip())
     except FileNotFoundError:
+        # It's okay if the file doesn't exist yet; we'll create it below.
         pass
 
-    all_urls.update(imgur_urls)
-    
-    with open(all_output_filename, 'w', encoding='utf-8') as all_output_file:
-        for url in all_urls:
-            all_output_file.write(f"{url}\n")
+    with open(all_output_filename, 'a', encoding='utf-8') as all_output_file:
+        for url in imgur_urls:
+            if url not in existing_urls:
+                all_output_file.write(f"{url}\n")
+                existing_urls.add(url)  # Update the set to include the new URL
 
 
 def download_json(url):

@@ -8,8 +8,11 @@ Downloads all imgur links from Openstreetmap's Taginfo and saves to a txt file.
 ### [Download images via IMGURuls.txt file.sh](Download%20images%20via%20IMGURuls.txt%20file.sh)
 Downloads the images that are in the txt file from the previous script
 
-### [Do the imgur link still work.py](Do the imgur link still work.py)
+### [Do the imgur links still work.py](Do%20the%20imgur%20links%20still%20work.py)
 This script checks to see if all the imgur urls in the file can still be accessed or if they've been deleted
+
+19/10/2023:
+Currently of the 26421 imagur links only 18 don't work anymore, 4 of which were in this backup and are in the process of being reuploaded by the person who originally added them.
 
 ## Snapshot of all images:
 

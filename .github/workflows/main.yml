@@ -1,9 +1,8 @@
 name: Run Imgur URL Extractor
 
 on:
-  push:
-    branches:
-      - test-actions  # Replace with your test branch name if different
+  schedule:
+    - cron: '0 * * * *'  # Every hour
 
 jobs:
   run-script:

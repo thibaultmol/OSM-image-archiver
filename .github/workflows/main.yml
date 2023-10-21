@@ -22,7 +22,7 @@ jobs:
       run: pip install requests
 
     - name: Run script
-      run: python your_script_name.py  # Replace with the actual name of your Python script
+      run: python imgur_taginfo_to_url_list.py  # Replace with the actual name of your Python script
 
     - name: Upload Snapshots
       uses: actions/upload-artifact@v2

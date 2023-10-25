@@ -22,7 +22,8 @@ And here you can download the actual images (DO NOTE: I myself am not giving per
 
 https://drive.proton.me/urls/AJF21D881R#ABHUtU6h6ZjG
 
-[Torrent](magnet:?xt=urn:btih:8a13d26943b44e00f9e28278301dad4508682f5b&xt=urn:btmh:1220f21c7712c59d8fe359473aae930375da7b2d3fc8be91abe716eb793100867624&dn=Snapshot%20of%20all%20IMGUR%20images%20as%20of%202023%2010%2019.zip)
+Torrent:
+`magnet:?xt=urn:btih:8a13d26943b44e00f9e28278301dad4508682f5b&xt=urn:btmh:1220f21c7712c59d8fe359473aae930375da7b2d3fc8be91abe716eb793100867624&dn=Snapshot%20of%20all%20IMGUR%20images%20as%20of%202023%2010%2019.zip`
 
 The amount of files is lower than the actual .txt file, because some urls were simply broken or deleted on Imgur's servers.
 ## Status of imgur links on OSM:

@@ -5,6 +5,9 @@ on:
     - cron: '0 3 * * 1,4'  # At 03:00 AM every Monday and Thursday
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   download_and_commit:
     runs-on: ubuntu-latest
@@ -26,8 +29,6 @@ jobs:
     - name: Run Script and Process Data
       run: |
         python imgur_taginfo_to_url_list.py
-        # Add here the Python code to merge and deduplicate with recent.txt
-        # Ensure this code outputs the final file as specified in your requirements
 
     - name: Commit and Push if there are changes
       run: |

@@ -3,6 +3,7 @@ name: Scheduled taginfo pull
 on:
   schedule:
     - cron: '0 3 * * 1,4'  # At 03:00 AM every Monday and Thursday
+  workflow_dispatch:
 
 jobs:
   download_and_commit:

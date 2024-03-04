@@ -1,0 +1,37 @@
+name: Scheduled taginfo pull
+
+on:
+  schedule:
+    - cron: '0 3 * * 1,4'  # At 03:00 AM every Monday and Thursday
+
+jobs:
+  download_and_commit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # Fetch all history for all tags and branches
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
+
+    - name: Run Script and Process Data
+      run: |
+        python imgur_taingof_to_url_list.py
+        # Add here the Python code to merge and deduplicate with recent.txt
+        # Ensure this code outputs the final file as specified in your requirements
+
+    - name: Commit and Push if there are changes
+      run: |
+        git config --global user.email "git@thibaultmol.link"
+        git config --global user.name "GH actions"
+        git add 'URL lists/'
+        git commit -m "Updated IMGUR URLs as of $(date +'%Y %m %d')" || exit 0   # Commit with a message including the date
+        git push

@@ -2,6 +2,8 @@
 
 import requests
 import re
+import os
+from datetime import datetime
 
 def download_json(url):
     """Download JSON data from a URL."""
@@ -27,11 +29,38 @@ def process_data(data):
                 imgur_urls.append(full_url)
     return imgur_urls
 
-def save_imgur_urls(imgur_urls, output_filename):
-    """Save the extracted Imgur URLs to a text file."""
+def merge_and_deduplicate(new_urls, recent_filename):
+    """Merge and deduplicate Imgur URLs with the recent.txt file."""
+    if os.path.exists(recent_filename):
+        with open(recent_filename, 'r', encoding='utf-8') as file:
+            existing_urls = file.read().splitlines()
+    else:
+        existing_urls = []
+
+    all_urls = list(set(existing_urls + new_urls))  # Merge and remove duplicates
+    all_urls.sort()  # Optional: Sort the URLs
+    return all_urls
+
+def save_imgur_urls(imgur_urls, output_directory, base_filename):
+    """Save the extracted Imgur URLs to a text file and update recent.txt."""
+    today = datetime.now().strftime("%Y %m %d")
+    output_filename = os.path.join(output_directory, f"{base_filename} as of {today}.txt")
+    recent_filename = os.path.join(output_directory, "recent.txt")
+
+    # Ensure the output directory exists
+    os.makedirs(output_directory, exist_ok=True)
+
+    all_urls = merge_and_deduplicate(imgur_urls, recent_filename)
+
+    # Save to the timestamped output file
     with open(output_filename, 'w', encoding='utf-8') as output_file:
-        for url in imgur_urls:
+        for url in all_urls:
             output_file.write(f"{url}\n")
+
+    # Overwrite recent.txt with the new data
+    with open(recent_filename, 'w', encoding='utf-8') as recent_file:
+        for url in all_urls:
+            recent_file.write(f"{url}\n")
 
 def main():
     """Main function to run the script."""
@@ -39,7 +68,8 @@ def main():
         "https://taginfo.openstreetmap.org/api/4/search/by_value?"
         "query=imgur&sortname=count_all&sortorder=desc&rp=999&page="
     )
-    output_filename = "IMGURurls.txt"
+    output_directory = "URL lists"
+    base_filename = "all IMGUR urls"
 
     imgur_urls = []
     page = 1
@@ -54,9 +84,9 @@ def main():
             break
         page += 1
 
-    print("Saving Imgur URLs to IMGURurls.txt...")
-    save_imgur_urls(imgur_urls, output_filename)
-    print("Done! Imgur URLs saved in IMGURurls.txt")
+    print(f"Saving Imgur URLs...")
+    save_imgur_urls(imgur_urls, output_directory, base_filename)
+    print("Done! Imgur URLs updated.")
 
 if __name__ == "__main__":
     main()

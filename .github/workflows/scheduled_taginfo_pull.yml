@@ -25,7 +25,7 @@ jobs:
 
     - name: Run Script and Process Data
       run: |
-        python imgur_taingof_to_url_list.py
+        python imgur_taginfo_to_url_list.py
         # Add here the Python code to merge and deduplicate with recent.txt
         # Ensure this code outputs the final file as specified in your requirements
 

@@ -5,7 +5,7 @@
 
 Downloads all imgur links from Openstreetmap's Taginfo and saves to a txt file.
   
-### [Download images via IMGURuls.txt file.sh](Download%20images.sh)
+### [Download images.sh](Download%20images.sh)
 Downloads the images that are in the txt file from the previous script
 
 ### [Do the imgur links still work.py](Do%20the%20imgur%20links%20still%20work.py)

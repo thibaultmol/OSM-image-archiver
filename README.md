@@ -22,7 +22,7 @@ These downloads are based on the url list from 2024 03 05:
 
 https://drive.proton.me/urls/A8TW092SPG#CCSgnfEORzVh
 
-[Torrent](Snapshot of all IMGUR images as of 2024 03 05.torrent):
+[Torrent](Snapshot%20of%20all%20IMGUR%20images%20as%20of%202024%2003%2005.torrent):
 `magnet:?xt=urn:btih:fb96ec1eb2525f1b59704f86f3794459e3a728cb&xt=urn:btmh:1220da065730b26404e3fa83903b6a9014c3d0b44caa157ff5da3a2d86eba68c1ece&dn=osm`
 
 The amount of files is lower than the actual .txt file, because some urls were simply broken or deleted on Imgur's servers.

@@ -18,12 +18,9 @@ The latest version you can find here: [recent.txt](URL%20lists/recent.txt)
 
 And here you can download the actual images (DO NOTE: I myself am not giving permission to use these images. Some of them have/had licenses on their respective Imgur pages which say what license applies to each one)
 
-These downloads are based on the url list from 2024 03 05:
+These downloads are based on the url list from 2024 10 25:
 
-https://drive.proton.me/urls/A8TW092SPG#CCSgnfEORzVh
-
-[Torrent](Snapshot%20of%20all%20IMGUR%20images%20as%20of%202024%2003%2005.torrent):
-`magnet:?xt=urn:btih:fb96ec1eb2525f1b59704f86f3794459e3a728cb&xt=urn:btmh:1220da065730b26404e3fa83903b6a9014c3d0b44caa157ff5da3a2d86eba68c1ece&dn=osm`
+https://drive.proton.me/urls/AVGC7Q071W#UKyD62Tc0AHH
 
 The amount of files is lower than the actual .txt file, because some urls were simply broken or deleted on Imgur's servers.
 ## Status of imgur links on OSM:
